@@ -1,11 +1,12 @@
 import { Route, Routes } from "react-router-dom";
-import { Navbar } from "../components";
+import { InfoNavbar, Navbar } from "../components";
 import { AboutUs, ContactUs, Dashboard } from "../containers";
 
 
 const MainRouts = () => {
   return (
     <div className="w-full">
+      <InfoNavbar />
       <Navbar />
       <Routes>
         <Route index element={<Dashboard />} />

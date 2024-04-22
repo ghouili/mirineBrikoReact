@@ -1,49 +1,79 @@
 import { Link, useLocation } from "react-router-dom";
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { FiSearch } from "react-icons/fi";
+import { BiUser } from "react-icons/bi";
+import { FaRegHeart } from "react-icons/fa";
+import { BsHandbag } from "react-icons/bs";
+
+import Logo from "../../assets/images/logo.png";
 
 const Navbar = () => {
   const location = useLocation();
 
+  const iconConfig = {
+    color: "#202020",
+    size: "1.5em",
+    // style: { strokeWidth: "0.2" },
+  };
+
   return (
-    <div className="w-full bg-gray-50 py-2 flex flex-row border shadow">
-      <div className="w-1/5 flex justify-center items-center ">
-        <span>LOGO</span>
+    <div className="w-full bg-white py-2 flex flex-row border shadow">
+      <div className="w-1/4 flex justify-center items-center ">
+        <img src={Logo} alt="LOGO_pic" className="w-32 h-auto" />
       </div>
-      <div className="w-4/5 px-10 flex flex-row items-center gap-10 font-semibold ">
+      <div className="w-2/4 px-10 flex flex-row items-center justify-center gap-10 font-semibold ">
         <Link
           to="/"
-          className={`cursor-pointer  hover:underline transition ease-in-out duration-500 ${
+          className={`flex flex-row items-center cursor-pointer transition ease-in-out duration-500 text-lg ${
             location.pathname === "/"
-              ? "text-red-700 hover:text-gray-800 underline"
-              : "text-gray-800 hover:text-red-700"
+              ? "text-[#4AD295] bg-[#F1F2F8] rounded-3xl py-2 px-4"
+              : "text-gray-800 hover:text-[#4AD295]"
           }`}
         >
-          Home
+          <span>Home</span>
+          <MdKeyboardArrowDown />
         </Link>
         <Link
           to="/contact"
-          className={`cursor-pointer  hover:underline transition ease-in-out duration-500 ${
+          className={`flex flex-row items-center cursor-pointer transition ease-in-out duration-500 text-lg ${
             location.pathname === "/contact"
-              ? "text-red-700 hover:text-gray-800 underline"
-              : "text-gray-800 hover:text-red-700"
+              ? "text-[#4AD295] bg-[#F1F2F8] rounded-3xl py-2 px-4"
+              : "text-gray-800 hover:text-[#4AD295]"
           }`}
         >
-          Contact us
+          <span>Contact</span>
+          <MdKeyboardArrowDown />
         </Link>
         <Link
           to="/about"
-          className={`cursor-pointer  hover:underline transition ease-in-out duration-500 ${
+          className={`flex flex-row items-center cursor-pointer transition ease-in-out duration-500 text-lg ${
             location.pathname === "/about"
-              ? "text-red-700 hover:text-gray-800 underline"
-              : "text-gray-800 hover:text-red-700"
+              ? "text-[#4AD295] bg-[#F1F2F8] rounded-3xl py-2 px-4"
+              : "text-gray-800 hover:text-[#4AD295]"
           }`}
         >
-          About us
+          <span>About</span>
+          <MdKeyboardArrowDown />
         </Link>
       </div>
-      <div className="w-1/5 flex justify-center ">
-        <button className="border-2 px-4 py-1 text-white font-medium border-sky-600 bg-sky-700 rounded-md hover:text-sky-700 hover:bg-white transition ease-in-out duration-500">
-          Connect
-        </button>
+      <div className="w-1/4 flex flex-row justify-center items-center gap-4 ">
+        <FiSearch {...iconConfig} />
+        <BiUser {...iconConfig} />
+        <div className="relative">
+          <FaRegHeart {...iconConfig} />
+          <span className="sr-only">Notifications</span>
+          <div className="absolute flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-[#4AD295] rounded-full -top-2.5 -end-2.5 ">
+            <span>0</span>
+          </div>
+        </div>
+        <div className="relative">
+          <BsHandbag {...iconConfig} />
+          <span className="sr-only">Notifications</span>
+          <div className="absolute flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-[#4AD295] rounded-full -top-2.5 -end-2.5 ">
+            <span>0</span>
+          </div>
+        </div>
+        
       </div>
     </div>
   );
